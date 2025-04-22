@@ -18,4 +18,4 @@
 ## インストール手順
 1. リポジトリをクローン
    ```bash
-   git clone https://github.com/yourusername/django-todo.git
+   git clone https://github.com/HamadaM-cpu/django-todo-app
