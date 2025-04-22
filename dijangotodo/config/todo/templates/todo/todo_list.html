@@ -1,0 +1,55 @@
+{% extends 'todo/base.html' %}
+
+{% block header %}
+<h1>🌸 今日のやることリスト 🌸</h1>
+
+<form method="GET" action="{% url 'list' %}">
+    <input type="text" name="search" placeholder="Search tasks" value="{{ request.GET.search }}">
+    <button type="submit" class="btn btn-outline-secondary btn-sm">検索</button>
+</form>
+
+{% if request.GET.search %}
+    <p>「<strong>{{ request.GET.search }}</strong>」の検索結果：{{ tasks|length }} 件</p>
+{% endif %}
+
+<p><a href="{% url 'create' %}" class="btn btn-pink">＋ 新規作成</a></p>
+{% endblock header %}
+
+{% block content %}
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+
+    {% if tasks %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">タイトル</th>
+                <th scope="col">締切日</th>
+                <th scope="col">完了</th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr class="task-item{% if task.completed %} completed-task{% endif %}">
+                <td>{{ task.title }}</td>
+                <td>{{ task.deadline }}</td>
+                <td>
+                    <a href="{% url 'toggle' task.pk %}" 
+                       class="btn {% if task.completed %}btn-success{% else %}btn-primary{% endif %} btn-sm">
+                        {% if task.completed %}未完了{% else %}完了{% endif %}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'detail' task.pk %}" class="btn btn-info btn-sm">詳細</a>
+                    <a href="{% url 'update' task.pk %}" class="btn btn-warning btn-sm">編集</a>
+                    <a href="{% url 'delete' task.pk %}" class="btn btn-danger btn-sm">削除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="text-center mt-4" style="color: #888;">タスクはまだありません 🍃<br>「＋ 新規作成」ボタンから追加できます！</p>
+    {% endif %}
+</div>
+{% endblock content %}

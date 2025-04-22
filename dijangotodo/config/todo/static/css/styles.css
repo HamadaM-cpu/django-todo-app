@@ -1,0 +1,145 @@
+/* 基本的なボタンスタイル */
+button, .btn {
+    padding: 12px 24px;
+    background-color: #FFB6C1;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #FF8C94;
+    transform: scale(1.05);
+}
+
+/* 削除ボタン（btn-danger） */
+.btn-danger {
+    background-color: #FF4C4C;
+    color: white;
+    border-radius: 25px;
+}
+
+.btn-danger:hover {
+    background-color: #FF2E2E;
+    transform: scale(1.05);
+}
+
+/* 詳細・戻るボタン（btn-outline-secondary） */
+.btn-outline-secondary {
+    border-color: #FF7F7F;
+    color: #FF7F7F;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #FF7F7F;
+    color: white;
+}
+
+/* 作成・編集ボタン（btn-success） */
+.btn-success {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 25px;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* カードのスタイル */
+.card {
+    border: 1px solid #FF7F7F;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* 見出しの色 */
+h1, h2 {
+    color: #FF7F7F;
+}
+
+/* ページ全体の背景とレイアウト */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCE4EC;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="date"], textarea {
+    border: 2px solid #FFCCE5;
+    border-radius: 10px;
+    padding: 8px 12px;
+    width: 100%;
+    background-color: #FFF5F8;
+    margin-bottom: 10px;
+}
+
+.table th {
+    background-color: #FFCCE5;
+    color: #4E4E4E;
+    border: none;
+}
+
+.table td {
+    background-color: #FFF5F8;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.completed-task {
+    opacity: 0.6;
+    text-decoration: line-through;
+    color: #888;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.85em;
+    color: #999;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
